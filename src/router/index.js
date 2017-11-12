@@ -16,11 +16,13 @@ export default new Router({
         children: [
             {
               path: "login",
-              component: Login
+              component: Login,
+                meta: { requiresGuest: true} // Route for only Guest
             },
             {
                 path: "register",
-                component: Register
+                component: Register,
+                meta: { requiresGuest: true} // Route for only Guest
             },
         ]
     }
