@@ -15,6 +15,10 @@ alertify.defaults.notifier.position = 'top-right'
 Vue.http.interceptors.push(function (request, next) {
     if(request.url[0] === '/') {
       request.url = process.env.API + request.url
+        var token = Vue.auth.getToken()
+        if(token) {
+          request.headers.set('Autorization', 'Bearer ' + token)
+        }
     }
     next(function (response) {
         if(response.status == 422) {
