@@ -11,7 +11,6 @@ Vue.use(VueResource)
 Vue.use(Auth)
 
 alertify.defaults.notifier.position = 'top-right'
-
 Vue.http.interceptors.push(function (request, next) {
     if(request.url[0] === '/') {
       request.url = process.env.API + request.url
